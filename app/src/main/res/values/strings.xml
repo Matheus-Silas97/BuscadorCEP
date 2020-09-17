@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Buscador de CEP</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="digite_o_cep">Digite o CEP</string>
+    <string name="logradouro">Logradouro:</string>
+    <string name="bairro">Bairro:</string>
+    <string name="cidade">Cidade:</string>
+    <string name="estado">Estado:</string>
+    <string name="cep">CEP:</string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="ddd">DDD:</string>
+    <string name="c_digo_do_munic_pio_ibge">Código do Município (IBGE):</string>
+    <string name="cep_n_o_encontrado">CEP NÃO ENCONTRADO</string>
+</resources>
