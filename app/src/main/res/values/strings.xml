@@ -12,4 +12,6 @@
     <string name="ddd">DDD:</string>
     <string name="c_digo_do_munic_pio_ibge">Código do Município (IBGE):</string>
     <string name="cep_n_o_encontrado">CEP NÃO ENCONTRADO</string>
+    <string name="preencha_campo">Preencha o campo CEP</string>
+    <string name="pesquise_cep">Pesquise por um CEP</string>
 </resources>
