@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             if (edit_cep.text.toString().isEmpty()) {
                 Toast.makeText(this, R.string.preencha_campo, Toast.LENGTH_SHORT).show()
             } else {
-                viewModel.searchCep(cep).observe(this, Observer { data ->
+                viewModel.searchCep(cep, this).observe(this, Observer { data ->
                     if (data != null) {
                         cep_error.visibility = View.GONE
 

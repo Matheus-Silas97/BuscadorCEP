@@ -14,4 +14,5 @@
     <string name="cep_n_o_encontrado">CEP NÃO ENCONTRADO</string>
     <string name="preencha_campo">Preencha o campo CEP</string>
     <string name="pesquise_cep">Pesquise por um CEP</string>
+    <string name="no_internet">Sem conexão com a internet</string>
 </resources>
