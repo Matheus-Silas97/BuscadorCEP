@@ -15,4 +15,5 @@
     <string name="preencha_campo">Preencha o campo CEP</string>
     <string name="pesquise_cep">Pesquise por um CEP</string>
     <string name="no_internet">Sem conexão com a internet</string>
+    <string name="abrir_no_maps">Abrir no Maps</string>
 </resources>

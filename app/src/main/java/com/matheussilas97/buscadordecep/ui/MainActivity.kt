@@ -2,10 +2,10 @@ package com.matheussilas97.buscadordecep.ui
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.buscadordecep.R
@@ -15,6 +15,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private var longitude: String? = null
     private var latitude: String? = null
+    private var cepString: String? = null
+    private var address: String? = null
+    private var state: String? = null
+    private var district: String? = null
+    private var city: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +36,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.searchCep(cep, this).observe(this, Observer { data ->
                     if (data != null) {
                         cep_error.visibility = View.GONE
+                        button.visibility = View.VISIBLE
 
                         layout_info.visibility = View.VISIBLE
                         address_text.text = data.address
@@ -45,17 +51,33 @@ class MainActivity : AppCompatActivity() {
 
                         latitude = data.lat
                         longitude = data.lng
+                        cepString = data.cep
+                        address = data.address
+                        state = data.state
+                        district = data.district
+                        city = data.city
                     } else {
                         cep_error.visibility = View.VISIBLE
                         layout_info.visibility = View.GONE
+                        button.visibility = View.GONE
                         latitude = null
                         longitude = null
+                        cepString = null
+                        address = null
+                        state = null
+                        district = null
+                        city = null
                     }
                 })
             }
         }
+
         button.setOnClickListener {
             openMaps()
+        }
+
+        button_shared.setOnClickListener {
+            sharedInfo()
         }
     }
 
@@ -68,6 +90,18 @@ class MainActivity : AppCompatActivity() {
                 startActivity(mapIntent)
             }
         } else {
+            Toast.makeText(this, R.string.pesquise_cep, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun sharedInfo() {
+        if (address != null && district != null && city != null && state != null && cepString != null) {
+            val text = "$address, $district, $city, $state - $cepString"
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.putExtra(Intent.EXTRA_TEXT, text)
+            intent.type = "text/plain"
+            startActivity(Intent.createChooser(intent, "Compartilhar endereço com"))
+        }else{
             Toast.makeText(this, R.string.pesquise_cep, Toast.LENGTH_SHORT).show()
         }
     }
